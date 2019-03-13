@@ -5,7 +5,7 @@
         <!-- Basic -->
         <meta charset="UTF-8">
 
-        <title>{{ config('app.name', 'TaxiTManager') }}</title>
+        <title>TaxiTManager</title>
         <meta name="keywords" content="Client Manager System Lagos Nigeria Africa TaxiTManager" />
         <meta name="description" content="TaxiTManager - Client Management System">
         <meta name="author" content="Oluwasegun Kesington">
@@ -49,15 +49,109 @@
     <body>
         <section class="body">
 
-            @include('layouts.navbar.admin_nav')
+            <?php $this->load->view('partials/header'); ?>
             <div class="inner-wrapper">
-            @include('layouts.sidebar.admin_side')
+            <?php $this->load->view('partials/sidebar'); ?>
         <section role="main" class="content-body sec-body">
-            @yield('body')
-        </section>
-            
-            </div>
 
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/css/bootstrap.css')}}" />
+
+    <link rel="stylesheet" href="{{asset('assets/vendor/font-awesome/css/font-awesome.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendor/magnific-popup/magnific-popup.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap-datepicker/css/datepicker3.css')}}" />
+
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="{{asset('assets/vendor/select2/select2.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/vendor/jquery-datatables-bs3/assets/css/datatables.css')}}" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{asset('assets/stylesheets/theme.css')}}" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="{{asset('assets/stylesheets/skins/default.css')}}" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="{{asset('assets/stylesheets/theme-custom.css')}}">
+
+    <!-- Head Libs -->
+    <script src="{{asset('assets/vendor/modernizr/modernizr.js')}}"></script>
+
+    <!-- start: page -->
+    <section class="panel" id="sectionBody">
+        <header class="panel-heading">
+            <div class="panel-actions">
+                        <button id="clickBankModal" 
+                            class="btn-success mb-xs mt-xs mr-xs btn btn-xs pull-right" 
+                            data-target="#newBankModal" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Add New Bank">
+                                <i class="fa fa-plus"></i> Add New</button>
+            </div>
+            <h2 class="panel-title">Banks</h2>
+        </header>
+        <div class="panel-body">
+            <table class="table table-bordered table-striped mb-none" id="datatable-default">
+                <thead>
+                    <tr>
+                        <th width="5%">S/N</th>
+                        <th width="10%">Name</th>
+                        <th width="15%">Account</th>
+                        <th width="15%">Balance</th>
+                        <th width="15%">Officer</th>
+                        <th width="10%">Number</th>
+                        <th width="15%">Email</th>
+                        <th width="15%">Update</th>
+                    </tr>
+                </thead>                
+                <tbody>
+                    <tr>
+                        <td>
+                            {{$loop->iteration}}
+                        </td>
+
+                        <td>                    
+                            {{$bank->name}} {{$bank->label}} {{$bank->currency->name}}
+                        </td>
+                        <td>                    
+                            {{$bank->acc_number}}
+                        </td>
+                        <td>                    
+                            {{$bank->currency->name.number_format($bank->balance,2)}}
+                        </td>
+                        <td>                    
+                            {{$bank->acc_officer}}
+                        </td>
+                        <td>                    
+                            {{$bank->acc_officer_number}}
+                        </td>
+                        <td>                    
+                            {{$bank->acc_officer_email}}
+                        </td>
+                        <td>
+                            <button 
+                            id="clickUpdateBankModal" 
+                            class="mb-xs mt-xs mr-xs btn btn-xs btn-info" 
+                            data-target="#updateBankModal" 
+                            data-id= "{{$bank->id}}"
+                            data-name= "{{$bank->name}}"
+                            data-officer= "{{$bank->acc_officer}}"
+                            data-number= "{{$bank->acc_officer_number}}"
+                            data-email= "{{$bank->acc_officer_email}}"
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Update Bank Balance">
+                                <i class="fa fa-edit"></i>
+                            </button> &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+        </section>
+            </div>
             <aside id="sidebar-right" class="sidebar-right">
                 <div class="nano">
                     <div class="nano-content">
