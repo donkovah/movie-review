@@ -6,7 +6,7 @@
     <section class="panel" id="sectionBody">
         <header class="panel-heading">
             <div class="panel-actions">
-                        <button id="clickBankModal" 
+                        <button onclick='location.href="<?php echo base_url().'review/create'; ?>"' 
                             class="btn-success mb-xs mt-xs mr-xs btn btn-xs pull-right" 
                             data-target="#newBankModal" 
                             data-toggle="tooltip" 

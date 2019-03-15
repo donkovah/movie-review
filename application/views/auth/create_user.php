@@ -1,57 +1,133 @@
-<h1><?php echo lang('create_user_heading');?></h1>
-<p><?php echo lang('create_user_subheading');?></p>
+<!doctype html>
+<html class="fixed">
+  <head>
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <!-- Basic -->
+    <meta charset="UTF-8">
 
-<?php echo form_open("auth/create_user");?>
+    <meta name="keywords" content="Rovedana Movie-Review" />
+    <meta name="description" content="Rovedana Movie-Revie">
+    <meta name="author" content="okler.net">
 
-      <p>
-            <?php echo lang('create_user_fname_label', 'first_name');?> <br />
-            <?php echo form_input($first_name);?>
-      </p>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-      <p>
-            <?php echo lang('create_user_lname_label', 'last_name');?> <br />
-            <?php echo form_input($last_name);?>
-      </p>
-      
-      <?php
-      if($identity_column!=='email') {
-          echo '<p>';
-          echo lang('create_user_identity_label', 'identity');
-          echo '<br />';
-          echo form_error('identity');
-          echo form_input($identity);
-          echo '</p>';
-      }
-      ?>
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
 
-      <p>
-            <?php echo lang('create_user_company_label', 'company');?> <br />
-            <?php echo form_input($company);?>
-      </p>
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.css" />
 
-      <p>
-            <?php echo lang('create_user_email_label', 'email');?> <br />
-            <?php echo form_input($email);?>
-      </p>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
 
-      <p>
-            <?php echo lang('create_user_phone_label', 'phone');?> <br />
-            <?php echo form_input($phone);?>
-      </p>
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/stylesheets/theme.css" />
 
-      <p>
-            <?php echo lang('create_user_password_label', 'password');?> <br />
-            <?php echo form_input($password);?>
-      </p>
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/stylesheets/skins/default.css" />
 
-      <p>
-            <?php echo lang('create_user_password_confirm_label', 'password_confirm');?> <br />
-            <?php echo form_input($password_confirm);?>
-      </p>
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/stylesheets/theme-custom.css">
 
+    <!-- Head Libs -->
+    <script src="<?php echo base_url(); ?>assets/vendor/modernizr/modernizr.js"></script>
+  </head>
+  <body>
 
-      <p><?php echo form_submit('submit', lang('create_user_submit_btn'));?></p>
+    <section class="body-sign">
+      <div class="center-sign">
+        <a href="/" class="logo pull-left">
+          <h3>Review</h3>
+        </a>
 
-<?php echo form_close();?>
+        <div class="panel panel-sign">
+          <div class="panel-title-sign mt-xl text-right">
+            <h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Sign Up</h2>
+          </div>
+          <div class="panel-body">
+            <div id="infoMessage"><?php echo $message;?></div>
+            <form 
+              action="<?php echo base_url().'auth/register'; ?>" 
+              method="Post">
+              <div class="form-group mb-lg">
+                <label>First Name</label>
+                <input name="first_name" type="text" class="form-control input-lg" />
+              </div>
+
+              <div class="form-group mb-lg">
+                <label>Last Name</label>
+                <input name="last_name" type="text" class="form-control input-lg" />
+              </div>
+
+              <div class="form-group mb-lg">
+                <label>E-mail Address</label>
+                <input name="email" type="email" class="form-control input-lg" />
+              </div>
+
+              <div class="form-group mb-none">
+                <div class="row">
+                  <div class="col-sm-6 mb-lg">
+                    <label>Password</label>
+                    <input name="password" type="password" class="form-control input-lg" />
+                  </div>
+                  <div class="col-sm-6 mb-lg">
+                    <label>Password Confirmation</label>
+                    <input name="password_confirm" type="password" class="form-control input-lg" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="checkbox-custom checkbox-default">
+                    <input id="AgreeTerms" name="agreeterms" type="checkbox"/>
+                    <label for="AgreeTerms">I agree with <a href="#">terms of use</a></label>
+                  </div>
+                </div>
+                <div class="col-sm-4 text-right">
+                  <button type="submit" class="btn btn-primary hidden-xs">Sign Up</button>
+                  <button type="submit" class="btn btn-primary btn-block btn-lg visible-xs mt-lg">Sign Up</button>
+                </div>
+              </div>
+
+              <span class="mt-lg mb-lg line-thru text-center text-uppercase">
+                <span>or</span>
+              </span>
+
+              <div class="mb-xs text-center">
+                <a class="btn btn-facebook mb-md ml-xs mr-xs">Connect with <i class="fa fa-facebook"></i></a>
+                <a class="btn btn-twitter mb-md ml-xs mr-xs">Connect with <i class="fa fa-twitter"></i></a>
+              </div>
+
+              <p class="text-center">Already have an account? <a href="<?php echo base_url().'auth/login' ?>">Sign In!</a>
+
+            </form>
+          </div>
+        </div>
+
+        <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2014. All Rights Reserved.</p>
+      </div>
+    </section>
+
+    <!-- Vendor -->
+    <script src="<?php echo base_url(); ?>assets/vendor/jquery/jquery.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    
+    <!-- Theme Base, Components and Settings -->
+    <script src="<?php echo base_url(); ?>assets/javascripts/theme.js"></script>
+    
+    <!-- Theme Custom -->
+    <script src="<?php echo base_url(); ?>assets/javascripts/theme.custom.js"></script>
+    
+    <!-- Theme Initialization Files -->
+    <script src="<?php echo base_url(); ?>assets/javascripts/theme.init.js"></script>
+
+  </body>
+</html>

@@ -72,9 +72,10 @@
                     <span class="separator"></span>
             
                     <div id="userbox" class="userbox" style="margin-top: -20px;">
+                        <?php if ($this->session->userdata('user_id')) { ?>
                         <a href="#" data-toggle="dropdown">
                             <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-                                <span class="name">Oluwasegun Kesington</span>
+                                <span class="name"><?php echo $this->session->userdata('identity'); ?></span>
                                 <!-- <span class="role">administrator</span> -->
                             </div>
             
@@ -100,6 +101,12 @@
                                 </li>
                             </ul>
                         </div>
+                        <?php }else { ?>
+                        <a href="<?php echo base_url().'auth/login'; ?>">
+                                <span class="name">Login</span>
+                        </a>
+
+                        <?php } ?>
                     </div>
                 </div>
                 <!-- end: search & user box -->

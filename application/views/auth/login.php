@@ -38,8 +38,8 @@
     <!-- start: page -->
     <section class="body-sign">
       <div class="center-sign">
-        <a href="/" class="logo pull-left">
-          <img src="<?php echo base_url(); ?>assets/images/logo.png" height="54" alt="Porto Admin" />
+        <a href="<?php echo base_url(); ?>" class="logo pull-left">
+          <h3>Review</h3>
         </a>
 
         <div class="panel panel-sign">
@@ -96,7 +96,7 @@
                 <span>or</span>
               </span>
 
-              <p class="text-center">Don't have an account yet? <a href="pages-signup.html">Sign Up!</a>
+              <p class="text-center">Don't have an account yet? <a href="<?php echo base_url().'auth/register' ?>">Sign Up!</a>
 
             </form>
           </div>
