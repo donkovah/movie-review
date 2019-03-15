@@ -96,11 +96,6 @@
                 <span>or</span>
               </span>
 
-              <div class="mb-xs text-center">
-                <a class="btn btn-facebook mb-md ml-xs mr-xs">Connect with <i class="fa fa-facebook"></i></a>
-                <a class="btn btn-twitter mb-md ml-xs mr-xs">Connect with <i class="fa fa-twitter"></i></a>
-              </div>
-
               <p class="text-center">Already have an account? <a href="<?php echo base_url().'auth/login' ?>">Sign In!</a>
 
             </form>

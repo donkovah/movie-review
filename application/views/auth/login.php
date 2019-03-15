@@ -47,6 +47,7 @@
             <h2 class="title text-uppercase text-weight-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
           </div>
           <div class="panel-body">
+            <div id="infoMessage"><?php echo $message;?></div>
             <form action="<?php echo base_url(); ?>auth/login" method="post">
               <div class="form-group mb-lg">
                 <label for="identity">Email</label>
